@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import { calculateMostNewListingArea } from "./queries";
-import { House } from "./bigQueryClient";
+import { calculateMostNewListingArea } from "./todaysMetrics";
+import { House } from "../bigQueryClient";
 
 describe("calculateMostNewListingArea", () => {
   it("should return the zone with the most listings", () => {

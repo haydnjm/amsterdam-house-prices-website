@@ -1,4 +1,4 @@
-import { TodaysMetrics as TTodaysMetrics } from "../../db/queries";
+import { TodaysMetrics as TTodaysMetrics } from "@/db/queries/todaysMetrics";
 import DataTile from "./dataTile";
 
 export default function TodaysMetrics({

@@ -1,6 +1,4 @@
-import { House, bigQueryClient } from "@/db/bigQueryClient";
-
-const datasetID = "houses-for-sale-392908.houses_for_sale.houses";
+import { House, bigQueryClient, datasetID } from "@/db/bigQueryClient";
 
 export type TodaysMetrics = {
   mostNewListingArea?: string;
@@ -81,8 +79,4 @@ async function getTodayMetrics(): Promise<TodaysMetrics> {
   };
 }
 
-const mod = {
-  getTodayMetrics,
-};
-
-export default mod;
+export default getTodayMetrics;

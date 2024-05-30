@@ -13,7 +13,7 @@ export default function DataTile({
         loading ? "animate-pulse" : ""
       }`}
     >
-      <p className="mb-14">{title}</p>
+      <p className="mb-12">{title}</p>
       <p className="text-4xl font-bold">{value}</p>
     </div>
   );

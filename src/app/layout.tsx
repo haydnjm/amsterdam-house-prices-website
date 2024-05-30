@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen py-20 z-10 w-full max-w-5xl m-auto border-red-500 border-2">
+        <div className="min-h-screen py-20 z-10 w-full max-w-5xl m-auto">
           <h1 className="text-5xl font-bold text-center my-20">
             Amsterdam house prices
           </h1>
