@@ -19,13 +19,13 @@ export default function TodaysMetrics({
           value={todaysMetrics.listingsToday?.toString() || "Unknown"}
         />
         <DataTile
-          title="the average listing price for the houses listed:"
+          title="average listing price:"
           value={`€${
             (Number(todaysMetrics.averagePrice) / 1000).toFixed(0) || "?"
           }k`}
         />
         <DataTile
-          title="the average price per m2 for the houses listed:"
+          title="average price per m&sup2; (ppm&sup2;):"
           value={`€${todaysMetrics.averagePricePerM2?.toFixed(0) || "?"}`}
         />
       </div>

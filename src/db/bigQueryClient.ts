@@ -31,16 +31,16 @@ export function buildQuery({
   limit?: number;
   groupBy?: string;
 }) {
-  return bigQueryClient.query(
-    `
-    SELECT
-        ${select}
-    FROM
-        \`${datasetID}\`
-    WHERE floor_space > 25 ${where && ` and ${where}`}
-    ${groupBy ? `GROUP BY ${groupBy}` : ""}
-    ${orderBy ? `ORDER BY ${orderBy}` : ""}
-    ${limit ? `LIMIT ${limit}` : ""}
-    `
-  );
+  const q = `
+  SELECT
+      ${select}
+  FROM
+      \`${datasetID}\`
+  WHERE floor_space > 25 ${where && ` and ${where}`}
+  ${groupBy ? `GROUP BY ${groupBy}` : ""}
+  ${orderBy ? `ORDER BY ${orderBy}` : ""}
+  ${limit ? `LIMIT ${limit}` : ""}
+  `;
+
+  return bigQueryClient.query(q);
 }

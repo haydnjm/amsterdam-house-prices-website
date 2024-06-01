@@ -1,6 +1,7 @@
 import TodaysMetrics from "./components/todaysMetrics";
 import MonthlyGraph from "./components/monthlyGraph";
 import ZoneTicker from "./components/zoneTicker";
+import PurchasingTips from "./components/purchasingTips";
 
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data`, {
@@ -22,6 +23,9 @@ export default async function Home() {
       <div className="max-w-5xl m-auto">
         <div className="my-32">
           <MonthlyGraph monthlyHousePrice={data.monthlyHousePrice} />
+        </div>
+        <div className="my-32">
+          <PurchasingTips purchasingTips={data.purchasingTips} />
         </div>
       </div>
     </div>

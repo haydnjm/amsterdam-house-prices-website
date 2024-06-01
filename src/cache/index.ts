@@ -3,9 +3,11 @@ import { MonthlyHousePrice } from "../db/queries/monthlyHousePrice";
 import {
   testMonthlyHousePrice,
   testOneMonthZoneDiffs,
+  testPurchasingTips,
   testTodaysMetrics,
 } from "./testData";
-import { OneMonthZoneDiffs } from "../db/queries/oneMonthZoneDiffs";
+import { OneMonthZoneDiff } from "../db/queries/oneMonthZoneDiffs";
+import { PurchasingTipData } from "../db/queries/purchasingTips";
 
 export const CACHE_DURATION_SHORT = process.env.CACHE_DURATION_SHORT
   ? Number(process.env.CACHE_DURATION)
@@ -17,35 +19,36 @@ export const CACHE_DURATION_LONG = process.env.CACHE_DURATION_LONG
 type CacheEntry<T> = {
   /** timestamp */
   expiration: number;
-  value: T;
+  value: T | undefined;
 };
 
-const todaysMetrics: TodaysMetrics = {};
-
 const _cachedTodaysMetrics = testTodaysMetrics;
-// export const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
+// const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
 //   expiration: 0,
-//   value: todaysMetrics,
+//   value: undefined,
 // };
-
-const monthlyHousePrice: MonthlyHousePrice = [];
 
 const _cachedMonthlyHousePrice = testMonthlyHousePrice;
-// export const _cachedMonthlyHousePrice: CacheEntry<MonthlyHousePrice> = {
+// const _cachedMonthlyHousePrice: CacheEntry<MonthlyHousePrice> = {
 //   expiration: 0,
-//   value: monthlyHousePrice,
+//   value: undefined,
 // };
-
-const oneMonthZoneDiffs: OneMonthZoneDiffs = [];
 
 const _cachedOneMonthZoneDiffs = testOneMonthZoneDiffs;
-// export const _cachedOneMonthZoneDiffs: CacheEntry<OneMonthZoneDiffs> = {
+// const _cachedOneMonthZoneDiffs: CacheEntry<OneMonthZoneDiff[]> = {
 //   expiration: 0,
-//   value: oneMonthZoneDiffs,
+//   value: undefined,
 // };
+
+// const _cachedPurchasingTips = testPurchasingTips;
+const _cachedPurchasingTips: CacheEntry<PurchasingTipData> = {
+  expiration: 0,
+  value: undefined,
+};
 
 export {
   _cachedTodaysMetrics,
   _cachedMonthlyHousePrice,
   _cachedOneMonthZoneDiffs,
+  _cachedPurchasingTips,
 };

@@ -1,10 +1,10 @@
 import { House, buildQuery } from "@/db/bigQueryClient";
 
 export type TodaysMetrics = {
-  mostNewListingArea?: string;
-  listingsToday?: number;
-  averagePrice?: number;
-  averagePricePerM2?: number;
+  mostNewListingArea: string;
+  listingsToday: number;
+  averagePrice: number;
+  averagePricePerM2: number;
 };
 
 /**

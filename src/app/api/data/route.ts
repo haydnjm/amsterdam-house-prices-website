@@ -4,8 +4,10 @@ import {
   CACHE_DURATION_SHORT,
   _cachedMonthlyHousePrice,
   _cachedOneMonthZoneDiffs,
+  _cachedPurchasingTips,
   _cachedTodaysMetrics,
 } from "@/cache";
+import getPurchasingTips from "../../../db/queries/purchasingTips";
 
 export async function GET(): Promise<Response> {
   let todaysMetrics;
@@ -47,10 +49,26 @@ export async function GET(): Promise<Response> {
       new Date().getTime() + CACHE_DURATION_LONG;
   }
 
-  await queries.getOneMonthZoneDiffs();
+  let purchasingTips;
+
+  if (new Date().getTime() < _cachedPurchasingTips.expiration) {
+    console.log("Cache hit for purchasingTips");
+    purchasingTips = _cachedPurchasingTips.value;
+  } else {
+    console.log("Cache miss for purchasingTips");
+    purchasingTips = await queries.getPurchasingTips();
+    _cachedPurchasingTips.value = purchasingTips;
+    _cachedPurchasingTips.expiration =
+      new Date().getTime() + CACHE_DURATION_LONG;
+  }
 
   return new Response(
-    JSON.stringify({ todaysMetrics, monthlyHousePrice, oneMonthZoneDiffs }),
+    JSON.stringify({
+      todaysMetrics,
+      monthlyHousePrice,
+      oneMonthZoneDiffs,
+      purchasingTips,
+    }),
     {
       headers: { "content-type": "application/json" },
     }

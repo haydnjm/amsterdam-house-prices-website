@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export const testTodaysMetrics = {
   expiration: 1817077234684,
   value: {
@@ -116,4 +118,42 @@ export const testOneMonthZoneDiffs = {
       lastMonth: 5467.128205128204,
     },
   ],
+};
+
+export const testPurchasingTips = {
+  expiration: 1817077234684,
+  value: {
+    oneBedroom: {
+      bestMonth: "July",
+      salePriceInBestMonth: 386333.3333333332,
+      pricePerM2InBestMonth: 7710.043478260867,
+      pricePerM2Average: 8235.076812031302,
+      totalPriceAverage: 433668.91566052404,
+      bestLocation: { zone: "test", count: 1 },
+    },
+    greaterThan75M2: {
+      bestMonth: "July",
+      salePriceInBestMonth: 789586.9196428573,
+      pricePerM2InBestMonth: 6735.589285714285,
+      pricePerM2Average: 7332.928808645819,
+      totalPriceAverage: 953957.7153701382,
+      bestLocation: { zone: "test", count: 1 },
+    },
+    lessThan500k: {
+      bestMonth: "July",
+      salePriceInBestMonth: 382822.83464566927,
+      pricePerM2InBestMonth: 6772.992125984258,
+      pricePerM2Average: 7085.5968907787465,
+      totalPriceAverage: 387310.55405963404,
+      bestLocation: { zone: "test", count: 1 },
+    },
+    moreThan2Bedrooms: {
+      bestMonth: "July",
+      salePriceInBestMonth: 754121.8906249999,
+      pricePerM2InBestMonth: 6039.453124999999,
+      pricePerM2Average: 7110.863614048346,
+      totalPriceAverage: 1032983.94454563,
+      bestLocation: { zone: "test", count: 1 },
+    },
+  },
 };

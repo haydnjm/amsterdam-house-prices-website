@@ -42,15 +42,23 @@ export default function MonthlyGraph({
         data: monthlyHousePrice.map((row) => row.averagePricePerM2),
         backgroundColor: "rgba(227, 138, 197, 0.2)",
         borderColor: "rgb(227, 138, 197)",
-        yAxisID: "y",
+        yAxisID: "pricePerM2",
       },
+      // {
+      //   label: "number of listings",
+      //   type: "line",
+      //   data: monthlyHousePrice.map((row) => row.totalListings),
+      //   backgroundColor: "rgba(117, 107, 209, 0.2)",
+      //   borderColor: "rgb(117, 107, 209, 0.2)",
+      //   yAxisID: "totalListings",
+      // },
       {
         label: "total price",
         type: "bar",
         data: monthlyHousePrice.map((row) => row.averagePrice),
         backgroundColor: "rgba(255, 239, 97, 0.6)",
         borderColor: "rgba(255, 239, 97, 1)",
-        yAxisID: "y1",
+        yAxisID: "totalPrice",
       },
     ],
   };
@@ -58,7 +66,7 @@ export default function MonthlyGraph({
   const options: ChartOptions = {
     responsive: true,
     scales: {
-      y: {
+      pricePerM2: {
         type: "linear",
         display: true,
         position: "left",
@@ -70,7 +78,7 @@ export default function MonthlyGraph({
           drawOnChartArea: false,
         },
       },
-      y1: {
+      totalPrice: {
         type: "linear",
         display: true,
         title: {
@@ -82,6 +90,16 @@ export default function MonthlyGraph({
           drawOnChartArea: false,
         },
       },
+      // totalListings: {
+      //   type: "linear",
+      //   display: false,
+      //   title: {
+      //     display: false,
+      //   },
+      //   grid: {
+      //     drawOnChartArea: false,
+      //   },
+      // },
       x: {
         grid: {
           drawOnChartArea: false,
