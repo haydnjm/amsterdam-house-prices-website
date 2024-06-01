@@ -22,23 +22,23 @@ type CacheEntry<T> = {
   value: T | undefined;
 };
 
-const _cachedTodaysMetrics = testTodaysMetrics;
-// const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
-//   expiration: 0,
-//   value: undefined,
-// };
+// const _cachedTodaysMetrics = testTodaysMetrics;
+const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
+  expiration: 0,
+  value: undefined,
+};
 
-const _cachedMonthlyHousePrice = testMonthlyHousePrice;
-// const _cachedMonthlyHousePrice: CacheEntry<MonthlyHousePrice> = {
-//   expiration: 0,
-//   value: undefined,
-// };
+// const _cachedMonthlyHousePrice = testMonthlyHousePrice;
+const _cachedMonthlyHousePrice: CacheEntry<MonthlyHousePrice> = {
+  expiration: 0,
+  value: undefined,
+};
 
-const _cachedOneMonthZoneDiffs = testOneMonthZoneDiffs;
-// const _cachedOneMonthZoneDiffs: CacheEntry<OneMonthZoneDiff[]> = {
-//   expiration: 0,
-//   value: undefined,
-// };
+// const _cachedOneMonthZoneDiffs = testOneMonthZoneDiffs;
+const _cachedOneMonthZoneDiffs: CacheEntry<OneMonthZoneDiff[]> = {
+  expiration: 0,
+  value: undefined,
+};
 
 // const _cachedPurchasingTips = testPurchasingTips;
 const _cachedPurchasingTips: CacheEntry<PurchasingTipData> = {

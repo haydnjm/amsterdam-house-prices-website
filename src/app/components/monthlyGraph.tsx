@@ -15,7 +15,6 @@ import {
   ChartOptions,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
-// import { Bar, Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -37,7 +36,7 @@ export default function MonthlyGraph({
     labels: monthlyHousePrice.map((row) => row.month),
     datasets: [
       {
-        label: "price per m2",
+        label: "ppm2",
         type: "line",
         data: monthlyHousePrice.map((row) => row.averagePricePerM2),
         backgroundColor: "rgba(227, 138, 197, 0.2)",
@@ -72,7 +71,7 @@ export default function MonthlyGraph({
         position: "left",
         title: {
           display: true,
-          text: "price per m2",
+          text: "ppm2",
         },
         grid: {
           drawOnChartArea: false,

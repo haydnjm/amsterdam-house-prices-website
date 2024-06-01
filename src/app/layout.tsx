@@ -23,8 +23,8 @@ export default function RootLayout({
               Amsterdam house prices
             </h1>
             <p className="text-md text-center my-10">
-              All of the following information is based off of public listings
-              posted since July 2023. It does not indicate final sale price, but
+              All of the following information is from public listings posted
+              since July 2023. It does not indicate final sale price, but
               initial listing price. &quot;Houses&quot; with less than 25m² are
               excluded because they&apos;re usually parking spaces (although you
               never know for sure in Amsterdam...).

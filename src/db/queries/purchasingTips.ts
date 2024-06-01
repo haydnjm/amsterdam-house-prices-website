@@ -75,21 +75,14 @@ export function calculateBestMonth(
       0
     ) / data.length;
 
-  let success = 0;
-  let fail = 0;
-
   const bestMonth = data.reduce((best, curr) => {
     // Must have sample size of more than 10
     if (curr.count <= 10) {
-      fail++;
       return best;
     }
 
-    success++;
     return curr[criteria] < best[criteria] ? curr : best;
   }, data[0]);
-
-  console.log("success", success, "fail", fail);
 
   return {
     bestMonth: moment(bestMonth.month, "M").format(`MMMM`),

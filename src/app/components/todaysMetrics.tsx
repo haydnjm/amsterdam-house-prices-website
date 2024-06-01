@@ -15,7 +15,7 @@ export default function TodaysMetrics({
           value={todaysMetrics.mostNewListingArea || "Unknown"}
         />
         <DataTile
-          title="the amount of houses listed:"
+          title="total houses listed:"
           value={todaysMetrics.listingsToday?.toString() || "Unknown"}
         />
         <DataTile

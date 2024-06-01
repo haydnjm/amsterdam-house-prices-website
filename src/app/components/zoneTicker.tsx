@@ -28,7 +28,7 @@ function ZoneTicker({
   return (
     <>
       {/*  */}
-      <div className="ticker-container bg-gray-800 text-white py-2">
+      <div className="ticker-container bg-gray-800 text-white py-4">
         <div className="ticker-move">
           {oneMonthZoneDiffs.map((zoneDiff) => (
             <TickerItem key={`1 ${zoneDiff.zone}`} zoneDiff={zoneDiff} />
@@ -41,8 +41,7 @@ function ZoneTicker({
       </div>
       <div className="max-w-5xl m-auto">
         <p className="text-xs">
-          average price per m2 over the last month, compared to the previous
-          month
+          average ppm&sup2; over the last month, compared to the previous month
         </p>
       </div>
     </>

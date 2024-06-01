@@ -20,7 +20,7 @@ function PurchasingTip({
         <h3 className="text-lg mb-5">{title}:</h3>
         <div className="text-sm">
           <p>
-            in <b>{tip.bestMonth.toLocaleLowerCase()}</b>, these houses were{" "}
+            in <b>{tip.bestMonth.toLocaleLowerCase()}</b> these houses were{" "}
             <b>{(improvement * 100).toFixed(1)}% cheaper</b> than the yearly
             average.
           </p>
