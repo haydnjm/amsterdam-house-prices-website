@@ -17,17 +17,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen py-20 z-10 w-full max-w-5xl m-auto">
-          <h1 className="text-5xl font-bold text-center my-20">
-            Amsterdam house prices
-          </h1>
-          <p className="text-lg text-center my-10">
-            All of the following information is based off of public listings
-            posted since July 2023
-          </p>
-          <p className="text-lg text-center my-10">
-            It does not indicate final sale price, but initial listing price.
-          </p>
+        <div className="min-h-screen py-20 z-10 w-full">
+          <div className="max-w-3xl m-auto">
+            <h1 className="text-5xl font-bold text-center my-20">
+              Amsterdam house prices
+            </h1>
+            <p className="text-md text-center my-10">
+              All of the following information is based off of public listings
+              posted since July 2023. It does not indicate final sale price, but
+              initial listing price. &quot;Houses&quot; with less than 25m² are
+              excluded because they&apos;re usually parking spaces (although you
+              never know for sure in Amsterdam...).
+            </p>
+          </div>
           {children}
         </div>
       </body>

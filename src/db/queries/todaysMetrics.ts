@@ -1,4 +1,4 @@
-import { House, bigQueryClient, datasetID } from "@/db/bigQueryClient";
+import { House, buildQuery } from "@/db/bigQueryClient";
 
 export type TodaysMetrics = {
   mostNewListingArea?: string;
@@ -45,16 +45,10 @@ export function calculateAveragePricePerM2(listings: House[]): number {
  */
 async function getTodaysListings(): Promise<House[]> {
   try {
-    const listingsRes = await bigQueryClient.query(
-      `
-                SELECT
-                    *
-                FROM
-                    \`${datasetID}\`
-                WHERE
-                    DATE(inserted_date)=CURRENT_DATE()
-                `
-    );
+    const listingsRes = await buildQuery({
+      select: "*",
+      where: `DATE(inserted_date)=CURRENT_DATE()`,
+    });
 
     return listingsRes[0];
   } catch (error) {
