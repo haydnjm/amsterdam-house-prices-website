@@ -43,10 +43,11 @@ export function calculateAveragePricePerM2(listings: House[]): number {
  * Get all listings from today
  * @returns
  */
-async function getTodaysListings(): Promise<House[]> {
+export async function getTodaysListings(): Promise<House[]> {
   try {
     const listingsRes = await buildQuery({
-      select: "*",
+      select:
+        "zone, price_sale, price_per_m2, postal_code, link, bedrooms, image",
       where: `DATE(inserted_date)=CURRENT_DATE()`,
     });
 

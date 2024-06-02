@@ -2,12 +2,13 @@ import queries from "@/db/queries";
 import {
   CACHE_DURATION_LONG,
   CACHE_DURATION_SHORT,
+  _cachedListingsWithCoords,
   _cachedMonthlyHousePrice,
   _cachedOneMonthZoneDiffs,
   _cachedPurchasingTips,
   _cachedTodaysMetrics,
 } from "@/cache";
-import getPurchasingTips from "../../../db/queries/purchasingTips";
+import getTodaysListingsWithCoords from "../../../maps";
 
 export async function GET(): Promise<Response> {
   let todaysMetrics;
@@ -33,7 +34,7 @@ export async function GET(): Promise<Response> {
     monthlyHousePrice = await queries.monthlyHousePrice();
     _cachedMonthlyHousePrice.value = monthlyHousePrice;
     _cachedMonthlyHousePrice.expiration =
-      new Date().getTime() + CACHE_DURATION_SHORT;
+      new Date().getTime() + CACHE_DURATION_LONG;
   }
 
   let oneMonthZoneDiffs;
@@ -62,12 +63,26 @@ export async function GET(): Promise<Response> {
       new Date().getTime() + CACHE_DURATION_LONG;
   }
 
+  let todaysListingsWithCoords;
+
+  if (new Date().getTime() < _cachedListingsWithCoords.expiration) {
+    console.log("Cache hit for purchasingTips");
+    todaysListingsWithCoords = _cachedListingsWithCoords.value;
+  } else {
+    console.log("Cache miss for purchasingTips");
+    todaysListingsWithCoords = await getTodaysListingsWithCoords();
+    _cachedListingsWithCoords.value = todaysListingsWithCoords;
+    _cachedListingsWithCoords.expiration =
+      new Date().getTime() + CACHE_DURATION_LONG;
+  }
+
   return new Response(
     JSON.stringify({
       todaysMetrics,
       monthlyHousePrice,
       oneMonthZoneDiffs,
       purchasingTips,
+      todaysListingsWithCoords,
     }),
     {
       headers: { "content-type": "application/json" },

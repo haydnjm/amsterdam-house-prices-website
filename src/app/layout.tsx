@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen py-20 z-10 w-full">
-          <div className="max-w-3xl m-auto">
+          {/* <div className="max-w-3xl m-auto">
             <h1 className="text-5xl font-bold text-center my-20">
               Amsterdam house prices
             </h1>
@@ -29,7 +29,7 @@ export default function RootLayout({
               excluded because they&apos;re usually parking spaces (although you
               never know for sure in Amsterdam...).
             </p>
-          </div>
+          </div> */}
           {children}
         </div>
       </body>

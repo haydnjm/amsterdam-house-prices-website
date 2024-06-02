@@ -3,10 +3,13 @@ import { BigQuery } from "@google-cloud/bigquery";
 export const datasetID = "houses-for-sale-392908.houses_for_sale.houses";
 
 export type House = {
+  link: string;
+  image: string;
   price_sale: number;
   bedrooms: number;
   price_per_m2: number;
   zone: string;
+  postal_code: string;
 };
 
 const bigQueryClient = new BigQuery({
