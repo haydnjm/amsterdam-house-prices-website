@@ -47,7 +47,7 @@ export async function getTodaysListings(): Promise<House[]> {
   try {
     const listingsRes = await buildQuery({
       select:
-        "zone, price_sale, price_per_m2, postal_code, link, bedrooms, image",
+        "zone, price_sale, price_per_m2, postal_code, link, bedrooms, image, house_name_number, floor_space",
       where: `DATE(inserted_date)=CURRENT_DATE()`,
     });
 

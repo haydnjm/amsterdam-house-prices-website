@@ -60,16 +60,16 @@ export async function GET(): Promise<Response> {
     purchasingTips = await queries.getPurchasingTips();
     _cachedPurchasingTips.value = purchasingTips;
     _cachedPurchasingTips.expiration =
-      new Date().getTime() + CACHE_DURATION_LONG;
+      new Date().getTime() + CACHE_DURATION_SHORT;
   }
 
   let todaysListingsWithCoords;
 
   if (new Date().getTime() < _cachedListingsWithCoords.expiration) {
-    console.log("Cache hit for purchasingTips");
+    console.log("Cache hit for todaysListingsWithCoords");
     todaysListingsWithCoords = _cachedListingsWithCoords.value;
   } else {
-    console.log("Cache miss for purchasingTips");
+    console.log("Cache miss for todaysListingsWithCoords");
     todaysListingsWithCoords = await getTodaysListingsWithCoords();
     _cachedListingsWithCoords.value = todaysListingsWithCoords;
     _cachedListingsWithCoords.expiration =

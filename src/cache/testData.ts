@@ -170,6 +170,8 @@ export const testListingsWithCoords = {
       bedrooms: 3,
       image: "https://cloud.funda.nl/valentina_media/191/475/709_360x240.jpg",
       coords: { lat: 52.3829131, lng: 4.869331499999999 },
+      floor_space: 100,
+      house_name_number: "123 fakestraatwithareallylongname",
     },
     {
       zone: "Oost",
@@ -180,6 +182,8 @@ export const testListingsWithCoords = {
       bedrooms: 2,
       image: "https://cloud.funda.nl/valentina_media/191/426/496_360x240.jpg",
       coords: { lat: 52.3638513, lng: 4.9826895 },
+      floor_space: 392,
+      house_name_number: "123 fakestraatwith",
     },
     {
       zone: "West",
@@ -190,6 +194,8 @@ export const testListingsWithCoords = {
       bedrooms: 2,
       image: "https://cloud.funda.nl/valentina_media/191/513/438_360x240.jpg",
       coords: { lat: 52.3653555, lng: 4.8364577 },
+      floor_space: 100,
+      house_name_number: "123 fakestraatwith",
     },
     {
       zone: "Zuid",
@@ -200,6 +206,9 @@ export const testListingsWithCoords = {
       bedrooms: 2,
       image: "https://cloud.funda.nl/valentina_media/191/520/807_360x240.jpg",
       coords: { lat: 52.36368299999999, lng: 4.8559462 },
+      floor_space: 73,
+      house_name_number:
+        "123 fakestraatwithareally longnamethats superduperlong",
     },
     {
       zone: "Nieuw-West",
@@ -210,6 +219,9 @@ export const testListingsWithCoords = {
       bedrooms: 2,
       image: "https://cloud.funda.nl/valentina_media/191/558/855_360x240.jpg",
       coords: { lat: 52.3556027, lng: 4.789899999999999 },
+      floor_space: 59,
+      house_name_number:
+        "123 fakestraatwithareally longnamethats superduperlong",
     },
   ],
 };

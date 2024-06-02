@@ -10,6 +10,8 @@ export type House = {
   price_per_m2: number;
   zone: string;
   postal_code: string;
+  house_name_number: string;
+  floor_space: number;
 };
 
 const bigQueryClient = new BigQuery({
