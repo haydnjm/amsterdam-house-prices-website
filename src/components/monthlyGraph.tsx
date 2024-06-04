@@ -43,14 +43,6 @@ export default function MonthlyGraph({
         borderColor: "rgb(227, 138, 197)",
         yAxisID: "pricePerM2",
       },
-      // {
-      //   label: "number of listings",
-      //   type: "line",
-      //   data: monthlyHousePrice.map((row) => row.totalListings),
-      //   backgroundColor: "rgba(117, 107, 209, 0.2)",
-      //   borderColor: "rgb(117, 107, 209, 0.2)",
-      //   yAxisID: "totalListings",
-      // },
       {
         label: "total price",
         type: "bar",
@@ -89,16 +81,6 @@ export default function MonthlyGraph({
           drawOnChartArea: false,
         },
       },
-      // totalListings: {
-      //   type: "linear",
-      //   display: false,
-      //   title: {
-      //     display: false,
-      //   },
-      //   grid: {
-      //     drawOnChartArea: false,
-      //   },
-      // },
       x: {
         grid: {
           drawOnChartArea: false,

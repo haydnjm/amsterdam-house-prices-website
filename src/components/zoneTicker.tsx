@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { OneMonthZoneDiff } from "../../db/queries/oneMonthZoneDiffs";
+import { OneMonthZoneDiff } from "@/db/queries/oneMonthZoneDiffs";
 import "./ticker.css";
 
 function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
@@ -27,7 +27,6 @@ function ZoneTicker({
 }) {
   return (
     <>
-      {/*  */}
       <div className="ticker-container bg-gray-800 text-white py-4">
         <div className="ticker-move">
           {oneMonthZoneDiffs.map((zoneDiff) => (

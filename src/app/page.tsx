@@ -1,35 +1,45 @@
-import TodaysMetrics from "./components/todaysMetrics";
-import MonthlyGraph from "./components/monthlyGraph";
-import ZoneTicker from "./components/zoneTicker";
-import PurchasingTips from "./components/purchasingTips";
-import NewListingsOverview from "./components/newListingsOverview";
+import TodaysMetrics from "./todays-metrics";
+import TodaysMetricsLoading from "./todays-metrics/loading";
+import ZoneTicker from "./zone-ticker";
+import ZoneTickerLoading from "./zone-ticker/loading";
+import MonthlyGraph from "./monthly";
+import MonthlyGraphLoading from "./monthly/loading";
+import PurchasingTips from "./tips";
+import PurchasingTipsLoading from "./tips/loading";
+import NewListings from "./new-liatings";
+import NewListingsLoading from "./new-liatings/loading";
+import { Suspense } from "react";
 
 export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data`, {
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-
   return (
     <div>
       <div className="max-w-5xl m-auto">
         <div className="my-32">
-          <TodaysMetrics todaysMetrics={data.todaysMetrics} />
+          <Suspense fallback={<TodaysMetricsLoading />}>
+            <TodaysMetrics />
+          </Suspense>
         </div>
       </div>
       <div className="my-32">
-        <ZoneTicker oneMonthZoneDiffs={data.oneMonthZoneDiffs} />
+        <Suspense fallback={<ZoneTickerLoading />}>
+          <ZoneTicker />
+        </Suspense>
       </div>
       <div className="max-w-5xl m-auto">
         <div className="my-32">
-          <MonthlyGraph monthlyHousePrice={data.monthlyHousePrice} />
+          <Suspense fallback={<MonthlyGraphLoading />}>
+            <MonthlyGraph />
+          </Suspense>
         </div>
         <div className="my-32">
-          <PurchasingTips purchasingTips={data.purchasingTips} />
+          <Suspense fallback={<PurchasingTipsLoading />}>
+            <PurchasingTips />
+          </Suspense>
         </div>
         <div className="my-32">
-          <NewListingsOverview markers={data.todaysListingsWithCoords} />
+          <Suspense fallback={<NewListingsLoading />}>
+            <NewListings />
+          </Suspense>
         </div>
       </div>
     </div>

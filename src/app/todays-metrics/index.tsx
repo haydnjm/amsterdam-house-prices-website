@@ -1,11 +1,13 @@
 import { TodaysMetrics as TTodaysMetrics } from "@/db/queries/todaysMetrics";
-import DataTile from "./dataTile";
+import DataTile from "@/components/dataTile";
 
-export default function TodaysMetrics({
-  todaysMetrics,
-}: {
-  todaysMetrics: TTodaysMetrics;
-}) {
+export default async function TodaysMetrics() {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data/today`, {
+    cache: "no-cache",
+  });
+
+  const todaysMetrics = (await data.json()).todaysMetrics as TTodaysMetrics;
+
   return (
     <>
       <h2 className="text-3xl mb-3">today (so far):</h2>

@@ -32,7 +32,7 @@ export default function RootLayout({
           </div>
           {children}
         </div>
-        <div className="mt-16 bg-gray-800">
+        <div className="bg-gray-800">
           <div className="max-w-3xl m-auto py-10 text-center text-white">
             <p>
               Made by{" "}
