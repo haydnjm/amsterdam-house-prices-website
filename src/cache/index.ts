@@ -24,7 +24,7 @@ export type CacheEntry<T> = {
   value: T | undefined;
 };
 
-const IS_TEST = true;
+const IS_TEST = false;
 
 const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
   expiration: 0,
@@ -53,11 +53,12 @@ const _cachedListingsWithCoords: CacheEntry<ListingWithCoords[]> = {
 
 const cache = IS_TEST
   ? {
-      _cachedTodaysMetrics,
-      // _cachedTodaysMetrics: {
-      //   expiration: 1817077234684,
-      //   value: testTodaysMetrics,
-      // },
+      // _cachedTodaysMetrics,
+      _cachedTodaysMetrics: {
+        expiration: 1817077234684,
+        value: testTodaysMetrics,
+      },
+      // _cachedMonthlyHousePrice,
       _cachedMonthlyHousePrice: {
         expiration: 1817077234684,
         value: testMonthlyHousePrice,

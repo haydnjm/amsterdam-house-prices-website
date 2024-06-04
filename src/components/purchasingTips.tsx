@@ -1,7 +1,7 @@
 import {
   PurchasingTip as TPurchasingTip,
   PurchasingTipData,
-} from "../../db/queries/purchasingTips";
+} from "@/db/queries/purchasingTips";
 
 function PurchasingTip({
   title,
