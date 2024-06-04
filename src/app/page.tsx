@@ -20,7 +20,7 @@ export default async function Home() {
           </Suspense>
         </div>
       </div>
-      {/* <div className="my-32">
+      <div className="my-32">
         <Suspense fallback={<ZoneTickerLoading />}>
           <ZoneTicker />
         </Suspense>
@@ -41,7 +41,7 @@ export default async function Home() {
             <NewListings />
           </Suspense>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
