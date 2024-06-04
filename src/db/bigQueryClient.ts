@@ -14,11 +14,17 @@ export type House = {
   floor_space: number;
 };
 
+console.log(
+  `Authing with BQ using ${
+    process.env.GOOGLE_CLOUD_BIG_QUERY_EMAIL
+  } and ${process.env.GOOGLE_CLOUD_BIG_QUERY_KEY?.slice(0, 40)}****`
+);
+
 const bigQueryClient = new BigQuery({
   projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
   credentials: {
     client_email: process.env.GOOGLE_CLOUD_BIG_QUERY_EMAIL,
-    private_key: process.env.GOOGLE_CLOUD_BIG_QUERY_KEY,
+    private_key: `${process.env.GOOGLE_CLOUD_BIG_QUERY_KEY}`,
   },
 });
 
