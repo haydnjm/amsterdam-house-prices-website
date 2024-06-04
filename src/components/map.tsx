@@ -7,7 +7,7 @@ import {
   Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import { ListingWithCoords } from "../../maps";
+import { ListingWithCoords } from "@/maps";
 import { mapStyles } from "./mapStyles";
 import React, { useState } from "react";
 

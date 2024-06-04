@@ -53,10 +53,11 @@ const _cachedListingsWithCoords: CacheEntry<ListingWithCoords[]> = {
 
 const cache = IS_TEST
   ? {
-      _cachedTodaysMetrics: {
-        expiration: 1817077234684,
-        value: testTodaysMetrics,
-      },
+      _cachedTodaysMetrics,
+      // _cachedTodaysMetrics: {
+      //   expiration: 1817077234684,
+      //   value: testTodaysMetrics,
+      // },
       _cachedMonthlyHousePrice: {
         expiration: 1817077234684,
         value: testMonthlyHousePrice,
