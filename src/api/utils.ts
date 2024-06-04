@@ -1,7 +1,7 @@
 import { CACHE_DURATION_LONG, CACHE_DURATION_SHORT, CacheEntry } from "@/cache";
 import queries from "@/db/queries";
 
-export async function getData<T>(
+export async function fetchData<T>(
   fetcher: () => Promise<T>,
   cache: CacheEntry<T>,
   cacheDuration: number = CACHE_DURATION_LONG

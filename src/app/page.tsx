@@ -6,8 +6,8 @@ import MonthlyGraph from "./monthly";
 import MonthlyGraphLoading from "./monthly/loading";
 import PurchasingTips from "./tips";
 import PurchasingTipsLoading from "./tips/loading";
-import NewListings from "./new-liatings";
-import NewListingsLoading from "./new-liatings/loading";
+import NewListings from "./new-listings";
+import NewListingsLoading from "./new-listings/loading";
 import { Suspense } from "react";
 
 export default async function Home() {

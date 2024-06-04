@@ -1,15 +1,8 @@
-import { OneMonthZoneDiff } from "@/db/queries/oneMonthZoneDiffs";
 import ZoneTickerComponent from "@/components/zoneTicker";
+import { getData } from "../api/data/zone-diffs";
 
 export default async function ZoneTicker() {
-  const data = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/data/zone-diffs`,
-    {
-      cache: "no-cache",
-    }
-  );
-  const oneMonthZoneDiffs = (await data.json())
-    .oneMonthZoneDiffs as OneMonthZoneDiff[];
+  const oneMonthZoneDiffs = await getData();
 
   return <ZoneTickerComponent oneMonthZoneDiffs={oneMonthZoneDiffs} />;
 }

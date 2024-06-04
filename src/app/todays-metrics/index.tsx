@@ -1,14 +1,9 @@
-import { TodaysMetrics as TTodaysMetrics } from "@/db/queries/todaysMetrics";
 import DataTile from "@/components/dataTile";
+import { getData } from "../api/data/today";
 
 export default async function TodaysMetrics() {
   console.log("Getting today data");
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data/today`, {
-    cache: "no-cache",
-  });
-  console.log(data);
-
-  const todaysMetrics = (await data.json()).todaysMetrics as TTodaysMetrics;
+  const todaysMetrics = await getData();
 
   return (
     <>

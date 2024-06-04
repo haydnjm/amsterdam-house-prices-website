@@ -1,12 +1,8 @@
-import { PurchasingTipData } from "@/db/queries/purchasingTips";
 import PurchasingTipsComponent from "@/components/purchasingTips";
+import { getData } from "../api/data/tips";
 
-export default async function MonthlyGraph() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data/tips`, {
-    cache: "no-cache",
-  });
-  const purchasingTips = (await data.json())
-    .purchasingTips as PurchasingTipData;
+export default async function PurchasingTips() {
+  const purchasingTips = await getData();
 
   return <PurchasingTipsComponent purchasingTips={purchasingTips} />;
 }
