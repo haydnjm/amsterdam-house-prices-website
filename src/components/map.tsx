@@ -1,15 +1,14 @@
 "use client";
 
+import { ListingWithCoords } from "@/maps";
 import {
   GoogleMap,
   InfoWindow,
-  InfoWindowF,
   Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import { ListingWithCoords } from "@/maps";
-import { mapStyles } from "./mapStyles";
 import React, { useState } from "react";
+import { mapStyles } from "./mapStyles";
 
 const containerStyle = {
   width: "100%",

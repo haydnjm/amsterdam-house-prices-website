@@ -4,28 +4,12 @@ import { MonthlyHousePrice as TMonthlyHousePrice } from "@/db/queries/monthlyHou
 import {
   ChartData,
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
   ChartOptions,
+  registerables,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(...registerables);
 
 export default function MonthlyGraph({
   monthlyHousePrice,
