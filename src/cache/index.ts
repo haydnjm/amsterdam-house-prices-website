@@ -24,7 +24,7 @@ export type CacheEntry<T> = {
   value: T | undefined;
 };
 
-const IS_TEST = false;
+const TEST_MODE = process.env.TEST_MODE === "true";
 
 const _cachedTodaysMetrics: CacheEntry<TodaysMetrics> = {
   expiration: 0,
@@ -51,7 +51,7 @@ const _cachedListingsWithCoords: CacheEntry<ListingWithCoords[]> = {
   value: undefined,
 };
 
-const cache = IS_TEST
+const cache = TEST_MODE
   ? {
       // _cachedTodaysMetrics,
       _cachedTodaysMetrics: {

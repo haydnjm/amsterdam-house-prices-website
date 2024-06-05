@@ -6,6 +6,7 @@ export async function getData(): Promise<ListingWithCoords[]> {
   return fetchData<ListingWithCoords[]>(
     getTodaysListingsWithCoords,
     _cache._cachedListingsWithCoords,
-    CACHE_DURATION_SHORT
+    CACHE_DURATION_SHORT,
+    "listings with coords"
   );
 }

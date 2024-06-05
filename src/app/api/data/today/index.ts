@@ -7,6 +7,7 @@ export async function getData(): Promise<TodaysMetrics> {
   return fetchData<TodaysMetrics>(
     queries.getTodaysMetrics,
     _cache._cachedTodaysMetrics,
-    CACHE_DURATION_SHORT
+    CACHE_DURATION_SHORT,
+    "todays metrics"
   );
 }

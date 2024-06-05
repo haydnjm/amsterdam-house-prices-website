@@ -28,7 +28,7 @@ function CustomMarker({ marker }: { marker: ListingWithCoords }) {
       key={marker.link}
       position={marker.coords}
       onClick={() => setShowInfo(true)}
-      icon={"/pin_20.png"}
+      icon={"/pin_small.png"}
     >
       {showInfo && (
         <InfoWindow

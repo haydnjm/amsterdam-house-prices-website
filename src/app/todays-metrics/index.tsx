@@ -1,8 +1,9 @@
 import DataTile from "@/components/dataTile";
 import { getData } from "../api/data/today";
+import { unstable_noStore } from "next/cache";
 
 export default async function TodaysMetrics() {
-  console.log("Getting today data");
+  unstable_noStore();
   const todaysMetrics = await getData();
 
   return (
