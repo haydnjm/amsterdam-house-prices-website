@@ -17,7 +17,8 @@ async function convertPostcodeToCoords(postcode: string): Promise<LatLng> {
     const { lat, lng } = data.results[0].geometry.location;
     return { lat, lng };
   }
-  throw new Error("Unable to find postcode");
+  console.error(`Unable to find latlng for postcode ${postcode}`);
+  return { lat: 0, lng: 0 };
 }
 
 async function getTodaysListingsWithCoords(): Promise<ListingWithCoords[]> {
