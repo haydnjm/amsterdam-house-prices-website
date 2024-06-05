@@ -20,7 +20,11 @@ const center = {
   lng: 4.8956182,
 };
 
-function CustomMarker({ marker }: { marker: ListingWithCoords }) {
+function CustomMarker({
+  marker,
+}: {
+  marker: ListingWithCoords & { showing: boolean };
+}) {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
@@ -28,7 +32,7 @@ function CustomMarker({ marker }: { marker: ListingWithCoords }) {
       key={marker.link}
       position={marker.coords}
       onClick={() => setShowInfo(true)}
-      icon={"/pin_small.png"}
+      icon={marker.showing ? "/pin_small.png" : "/pin_small_grey.png"}
     >
       {showInfo && (
         <InfoWindow
@@ -44,7 +48,11 @@ function CustomMarker({ marker }: { marker: ListingWithCoords }) {
   );
 }
 
-function TodaysListingsMap({ markers }: { markers: ListingWithCoords[] }) {
+function TodaysListingsMap({
+  markers,
+}: {
+  markers: Array<ListingWithCoords & { showing: boolean }>;
+}) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
@@ -57,7 +65,7 @@ function TodaysListingsMap({ markers }: { markers: ListingWithCoords[] }) {
         styles: mapStyles,
       }}
       center={center}
-      zoom={13}
+      zoom={12}
     >
       {/* Child components, such as markers, info windows, etc. */}
       {markers.map((marker) => (

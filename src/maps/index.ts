@@ -32,6 +32,7 @@ async function getTodaysListingsWithCoords(): Promise<ListingWithCoords[]> {
         };
       })
     );
+    console.log(listingsWithCoords);
     return listingsWithCoords;
   } catch (error) {
     console.error(error);
