@@ -1,5 +1,4 @@
-import { CACHE_DURATION_LONG, CACHE_DURATION_SHORT, CacheEntry } from "@/cache";
-import queries from "@/db/queries";
+import { CACHE_DURATION_LONG, CacheEntry } from "@/cache";
 
 export async function fetchData<T>(
   fetcher: () => Promise<T>,
