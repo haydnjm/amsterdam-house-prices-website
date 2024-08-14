@@ -12,16 +12,10 @@ import { Suspense } from "react";
 
 export const revalidate = 60 * 60 * 3;
 
-const date = new Date();
-
 export default async function Home() {
   return (
     <div>
       <div className="max-w-5xl m-auto">
-        <p>
-          {date.getDate()}/{date.getMonth() + 1} {date.getHours()}:
-          {date.getMinutes()}:{date.getSeconds()}
-        </p>
         <div className="my-32">
           <Suspense fallback={<TodaysMetricsLoading />}>
             <TodaysMetrics />
