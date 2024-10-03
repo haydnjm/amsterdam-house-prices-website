@@ -28,10 +28,12 @@ async function getOneMonthZoneDiffs(): Promise<OneMonthZoneDiff[]> {
   const thisMonth = await getStatsPerZone(0);
   const lastMonth = await getStatsPerZone(1);
 
-  return thisMonth.map((zone, i) => ({
-    zone: zone.zone,
-    thisMonth: zone.average_price_per_m2,
-    lastMonth: lastMonth[i].average_price_per_m2,
+  return thisMonth.map((zoneData, i) => ({
+    zone: zoneData.zone,
+    thisMonth: zoneData.average_price_per_m2,
+    lastMonth:
+      lastMonth.find((zD) => zD.zone === zoneData.zone)?.average_price_per_m2 ||
+      0,
   }));
 }
 

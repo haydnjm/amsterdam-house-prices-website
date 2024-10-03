@@ -8,13 +8,25 @@ function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
     [zoneDiff]
   );
   const hasIncreased = percentageChange > 0;
+  const hasValidData = zoneDiff.thisMonth && zoneDiff.lastMonth;
+  const symbol = !hasValidData ? "?" : hasIncreased ? "↑" : "↓";
+  const value = hasValidData ? Math.abs(percentageChange * 100).toFixed(1) : "";
+
   return (
     <div className="mx-2 p-3 flex font-mono text-2xl">
       <p className="mx-2">{zoneDiff.zone}</p>
       <p className="mx-2">€{(Number(zoneDiff.thisMonth) / 1000).toFixed(2)}k</p>
-      <p className={`mx-2 ${hasIncreased ? "text-red-400" : "text-green-400"}`}>
-        {hasIncreased ? "↑" : "↓"}
-        {Math.abs(percentageChange * 100).toFixed(1)}%
+      <p
+        className={`mx-2 ${
+          !hasValidData
+            ? "text-slate-600"
+            : hasIncreased
+            ? "text-red-400"
+            : "text-green-400"
+        }`}
+      >
+        {symbol}
+        {value}%
       </p>
     </div>
   );
