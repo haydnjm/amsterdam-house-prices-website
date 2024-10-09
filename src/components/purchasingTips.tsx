@@ -5,17 +5,15 @@ import {
 
 function PurchasingTip({
   title,
-  category,
   improvement,
   tip,
 }: {
   title: string;
-  category: string;
   improvement: number;
   tip: TPurchasingTip;
 }) {
   return (
-    <div className="p-2 w-1/2">
+    <div className="p-2 w-full sm:w-1/2">
       <div className="p-3 bg-gray-300 rounded-lg">
         <h3 className="text-lg mb-5">{title}:</h3>
         <div className="text-sm">
@@ -50,7 +48,6 @@ function PurchasingTips({
       <div className="-m-2 flex flex-wrap">
         <PurchasingTip
           title="one bedroom"
-          category="houses with one bedroom"
           improvement={
             (oneBedroom.pricePerM2Average - oneBedroom.pricePerM2InBestMonth) /
             oneBedroom.pricePerM2Average
@@ -59,7 +56,6 @@ function PurchasingTips({
         />
         <PurchasingTip
           title="larger than 75m&sup2;"
-          category="houses larger than 75m&sup2;"
           improvement={
             (greaterThan75M2.pricePerM2Average -
               greaterThan75M2.pricePerM2InBestMonth) /
@@ -69,7 +65,6 @@ function PurchasingTips({
         />
         <PurchasingTip
           title="less than €500k"
-          category="houses listed at less than €500k"
           improvement={
             (lessThan500k.pricePerM2Average -
               lessThan500k.pricePerM2InBestMonth) /
@@ -79,7 +74,6 @@ function PurchasingTips({
         />
         <PurchasingTip
           title="more than 2 bedrooms"
-          category="houses with more than 2 bedrooms"
           improvement={
             (moreThan2Bedrooms.pricePerM2Average -
               moreThan2Bedrooms.pricePerM2InBestMonth) /

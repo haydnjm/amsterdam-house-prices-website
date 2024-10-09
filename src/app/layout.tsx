@@ -77,7 +77,7 @@ export default function RootLayout({
             className="fixed top-5 right-5 z-50"
           />
         </a>
-        <div className="min-h-screen py-20 z-10 w-full">
+        <div className="min-h-screen max-lg:px-4 py-20 z-10 w-full">
           <div className="max-w-3xl m-auto">
             <h1 className="text-5xl font-bold text-center my-20">
               Amsterdam house prices

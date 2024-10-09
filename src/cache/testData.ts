@@ -1,5 +1,5 @@
 export const testTodaysMetrics = {
-  mostNewListingArea: "boop",
+  mostNewListingArea: "Nieuw-West",
   listingsToday: 1,
   averagePrice: 2000,
   averagePricePerM2: 3000,

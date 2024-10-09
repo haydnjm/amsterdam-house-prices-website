@@ -7,7 +7,7 @@ export default async function TodaysMetrics() {
   return (
     <>
       <h2 className="text-3xl mb-3">today (so far):</h2>
-      <div className="flex -mx-2">
+      <div className="flex -mx-2 flex-wrap">
         <DataTile
           title="the most new listings are in:"
           value={todaysMetrics.mostNewListingArea || "Unknown"}

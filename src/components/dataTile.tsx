@@ -8,13 +8,15 @@ export default function DataTile({
   loading?: boolean;
 }) {
   return (
-    <div
-      className={`bg-gray-300 p-2 rounded-md shadow-sm mx-2 flex-1 flex flex-col justify-between ${
-        loading ? "animate-pulse" : ""
-      }`}
-    >
-      <p className="mb-12">{title}</p>
-      <p className="text-4xl font-bold">{value}</p>
+    <div className={`w-full sm:w-1/2 lg:w-1/4 p-2`}>
+      <div
+        className={`bg-gray-300 p-2 rounded-md shadow-sm flex flex-col justify-between ${
+          loading ? "animate-pulse" : ""
+        }`}
+      >
+        <p className="mb-12">{title}</p>
+        <p className="text-4xl font-bold">{value}</p>
+      </div>
     </div>
   );
 }
