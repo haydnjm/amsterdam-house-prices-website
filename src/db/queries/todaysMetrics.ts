@@ -20,8 +20,9 @@ export function calculateMostNewListingArea(listings: House[]): string {
     return a;
   }, {} as Record<string, number>);
 
-  return Object.keys(groupedListings).reduce((a, b) =>
-    groupedListings[a] > groupedListings[b] ? a : b
+  return Object.keys(groupedListings).reduce(
+    (a, b) => (groupedListings[a] > groupedListings[b] ? a : b),
+    ""
   );
 }
 
