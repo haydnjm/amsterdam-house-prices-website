@@ -73,7 +73,7 @@ function TodaysListingsMap({
       ))}
     </GoogleMap>
   ) : (
-    <></>
+    <>Google maps is not loaded...</>
   );
 }
 

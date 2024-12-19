@@ -21,9 +21,11 @@ async function convertPostcodeToCoords(postcode: string): Promise<LatLng> {
   return { lat: 0, lng: 0 };
 }
 
-async function getTodaysListingsWithCoords(): Promise<ListingWithCoords[]> {
+async function getTodaysListingsWithCoords(
+  page: number
+): Promise<ListingWithCoords[]> {
   try {
-    const todaysListings = await getTodaysListings();
+    const todaysListings = await getTodaysListings(page);
     const listingsWithCoords = await Promise.all(
       todaysListings.map(async (listing) => {
         return {

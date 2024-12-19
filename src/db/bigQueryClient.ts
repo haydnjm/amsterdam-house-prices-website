@@ -28,12 +28,14 @@ export function buildQuery({
   where,
   orderBy,
   limit,
+  offset,
   groupBy,
 }: {
   select: string;
   where?: string;
   orderBy?: string;
   limit?: number;
+  offset?: number;
   groupBy?: string;
 }) {
   const q = `
@@ -45,6 +47,7 @@ export function buildQuery({
   ${groupBy ? `GROUP BY ${groupBy}` : ""}
   ${orderBy ? `ORDER BY ${orderBy}` : ""}
   ${limit ? `LIMIT ${limit}` : ""}
+  ${offset ? `OFFSET ${offset}` : ""}
   `;
 
   return bigQueryClient.query(q);

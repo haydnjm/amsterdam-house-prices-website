@@ -7,6 +7,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cloud.funda.nl",
       },
+      {
+        protocol: "https",
+        hostname: "casco-media-prod.global.ssl.fastly.net",
+      },
     ],
   },
 };

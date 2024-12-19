@@ -22,7 +22,7 @@ export function calculateMostNewListingArea(listings: House[]): string {
 
   return Object.keys(groupedListings).reduce(
     (a, b) => (groupedListings[a] > groupedListings[b] ? a : b),
-    ""
+    "-"
   );
 }
 
@@ -44,12 +44,16 @@ export function calculateAveragePricePerM2(listings: House[]): number {
  * Get all listings from today
  * @returns
  */
-export async function getTodaysListings(): Promise<House[]> {
+export async function getTodaysListings(page?: number): Promise<House[]> {
+  const offset = page !== undefined ? page * 10 : undefined;
+  const limit = page !== undefined ? 10 : undefined;
   try {
     const listingsRes = await buildQuery({
       select:
         "zone, price_sale, price_per_m2, postal_code, link, bedrooms, image, house_name_number, floor_space",
       where: `DATE(inserted_date)=CURRENT_DATE()`,
+      offset,
+      limit,
     });
 
     return listingsRes[0];

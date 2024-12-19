@@ -44,7 +44,7 @@ function PurchasingTips({
 }) {
   return (
     <div>
-      <h2 className="text-3xl mb-3">tips:</h2>
+      <h2 className="text-3xl mb-3">when to buy:</h2>
       <div className="-m-2 flex flex-wrap">
         <PurchasingTip
           title="one bedroom"
