@@ -18,13 +18,21 @@ export default async function TodaysMetrics() {
         />
         <DataTile
           title="average listing price:"
-          value={`€${
-            (Number(todaysMetrics.averagePrice) / 1000).toFixed(0) || "?"
-          }k`}
+          value={
+            todaysMetrics.averagePrice
+              ? `€${
+                  (Number(todaysMetrics.averagePrice) / 1000).toFixed(0) || "?"
+                }k`
+              : "-"
+          }
         />
         <DataTile
           title="average price per m&sup2; (ppm&sup2;):"
-          value={`€${todaysMetrics.averagePricePerM2?.toFixed(0) || "?"}`}
+          value={
+            todaysMetrics.averagePricePerM2
+              ? `€${todaysMetrics.averagePricePerM2.toFixed(0) || "?"}`
+              : "-"
+          }
         />
       </div>
     </>
