@@ -1,6 +1,6 @@
 import { BigQuery } from "@google-cloud/bigquery";
 
-export const datasetID = "houses-for-sale-392908.houses_for_sale.houses";
+export const datasetID = `${process.env.GOOGLE_CLOUD_PROJECT_ID}.${process.env.BIGQUERY_TABLE}`;
 
 export type House = {
   link: string;
