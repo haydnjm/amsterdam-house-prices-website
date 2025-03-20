@@ -22,7 +22,7 @@ function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
             ? "text-slate-600"
             : hasIncreased
             ? "text-red-400"
-            : "text-green-400"
+            : "text-[#49E981]"
         }`}
       >
         {symbol}

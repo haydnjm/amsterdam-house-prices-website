@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import Image from "next/image";
 import haydnLogo from "@/images/haydn.png";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Amsterdam house prices",
@@ -16,6 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {process.env.NODE_ENV === "production" && (
+        <Script
+          defer
+          src="https://analytics.haydnjm.com/script.js"
+          data-website-id="650cc5f0-7b3c-43fc-b114-a847df44cd81"
+        />
+      )}
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
         {/* Add description to the page */}
