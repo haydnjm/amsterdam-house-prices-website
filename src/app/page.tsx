@@ -38,7 +38,7 @@ export default async function Home() {
             <PurchasingTips />
           </Suspense>
         </div>
-        <div className="my-32">
+        <div className="mt-32">
           <Suspense fallback={<NewListingsLoading />}>
             <NewListings />
           </Suspense>

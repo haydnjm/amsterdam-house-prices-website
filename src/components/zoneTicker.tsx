@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { OneMonthZoneDiff } from "@/db/queries/oneMonthZoneDiffs";
-import "./ticker.css";
+import styles from "./ticker.module.css";
 
 function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
   const percentageChange = useMemo(
@@ -13,8 +13,8 @@ function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
   const value = hasValidData ? Math.abs(percentageChange * 100).toFixed(1) : "";
 
   return (
-    <div className="mx-2 p-3 flex font-mono text-2xl">
-      <p className="mx-2">{zoneDiff.zone}</p>
+    <div className="mx-2 px-3 flex font-mono text-2xl">
+      <p className="mx-2 whitespace-nowrap">{zoneDiff.zone}</p>
       <p className="mx-2">€{(Number(zoneDiff.thisMonth) / 1000).toFixed(2)}k</p>
       <p
         className={`mx-2 ${
@@ -39,8 +39,8 @@ function ZoneTicker({
 }) {
   return (
     <>
-      <div className="ticker-container bg-gray-800 text-white py-4">
-        <div className="ticker-move">
+      <div className={`${styles.scrollContainer} bg-gray-800 py-4 text-white`}>
+        <div className={`${styles.scrollTrack} cursor-default`}>
           {oneMonthZoneDiffs.map((zoneDiff) => (
             <TickerItem key={`1 ${zoneDiff.zone}`} zoneDiff={zoneDiff} />
           ))}

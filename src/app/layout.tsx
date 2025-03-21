@@ -1,13 +1,84 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Head from "next/head";
 import Image from "next/image";
 import haydnLogo from "@/images/haydn.png";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Amsterdam house prices",
-  description: "An interactive map of house prices in Amsterdam",
+  metadataBase: new URL("https://ams.haydnjm.com"),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+    other: {
+      rel: "icon",
+      url: "/favicon.ico",
+    },
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-GB": "/en-GB",
+    },
+  },
+  title: {
+    default: "Amsterdam House Prices",
+    template: "%s | Amsterdam House Prices",
+  },
+  description:
+    "How are house prices in Amsterdam changing? An interactive map of house prices in Amsterdam.",
+  keywords: [
+    "Amsterdam",
+    "house prices",
+    "koopprijs in Amsterdam",
+    "property market",
+    "interactive map",
+  ],
+  authors: [{ name: "Haydn Morris" }],
+  creator: "Haydn Morris",
+  publisher: "Haydn Morris Digital",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    siteName: "Amsterdam House Prices",
+    title: "Amsterdam House Prices",
+    description:
+      "How are house prices in Amsterdam changing? An interactive map of house prices in Amsterdam.",
+    images: [
+      {
+        url: "/images/thumbnail-wide.png",
+        width: 1200,
+        height: 630,
+        alt: "Amsterdam House Prices",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -24,70 +95,28 @@ export default function RootLayout({
           data-website-id="650cc5f0-7b3c-43fc-b114-a847df44cd81"
         />
       )}
-      <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
-        {/* Add description to the page */}
-        <meta
-          name="description"
-          content="How are house prices in Amsterdam changing?"
-        />
-        {/* Add Open Graph meta tags for better social media sharing */}
-        <meta property="og:title" content="Amsterdam house prices" />
-        <meta
-          property="og:description"
-          content="How are house prices in Amsterdam changing? An interactive map of house prices in Amsterdam."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ams.haydnjm.com.com" />{" "}
-        {/* Replace with your actual URL */}
-        <meta
-          property="og:image"
-          content="https://ams.haydnjm.com/og-image.jpg"
-        />{" "}
-        {/* Replace with your actual image URL */}
-        {/* Add Twitter Card meta tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Amsterdam house prices" />
-        <meta
-          name="twitter:description"
-          content="How are house prices in Amsterdam changing? An interactive map of house prices in Amsterdam."
-        />
-        {/* Add canonical URL */}
-        <link rel="canonical" href="https://ams.haydnjm.com" />{" "}
-        {/* Replace with your actual URL */}
-        {/* Add structured data for rich snippets */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Amsterdam house prices",
-              "description": "An interactive map of house prices in Amsterdam",
-              "url": "https://ams.haydnjm.com"
-            }
-          `}
-        </script>
-        {/* Add robots meta tag to allow indexing */}
-        <meta name="robots" content="index, follow" />
-        {/* Add keywords meta tag */}
-        <meta
-          name="keywords"
-          content="Amsterdam, house prices, real estate, property market, interactive map"
-        />
-      </Head>
-      <body className={"font-sans font-light"}>
-        <a href="https://haydnjm.com" target="_blank" rel="noopener noreferrer">
-          <Image
-            src={haydnLogo}
-            alt="Haydn logo"
-            width={30}
-            height={30}
-            className="fixed top-5 right-5 z-50"
-          />
-        </a>
-        <div className="min-h-screen max-lg:px-4 py-20 z-10 w-full">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-secondary/20 via-background to-secondary/20`}
+      >
+        <header className="sticky top-0 z-40 w-full border-b-2 border-secondary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-container h-16 flex items-center">
+          <a
+            href="https://haydnjm.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2"
+          >
+            <Image
+              src={haydnLogo}
+              alt="Amsterdam House Prices logo"
+              width={32}
+              height={32}
+            />
+            <span className="inline-block font-bold">Haydn Morris</span>
+          </a>
+        </header>
+        <div className="min-h-screen lg:py-20 z-10 w-full">
           <div className="max-w-3xl m-auto">
-            <h1 className="text-5xl font-bold text-center my-20">
+            <h1 className="font-bold tracking-tighter text-5xl lg:text-6xl text-center my-20">
               Amsterdam house prices
             </h1>
             <p className="text-md text-center my-10">
@@ -100,21 +129,28 @@ export default function RootLayout({
           </div>
           {children}
         </div>
-        <div className="bg-gray-800">
-          <div className="max-w-3xl m-auto py-10 text-center text-white">
+        <footer className="border-t py-6 md:py-0 px-container bg-background text-foreground">
+          <div className="w-full py-10 text-center flex items-center justify-between text-sm text-muted-foreground">
             <p>
-              Made by{" "}
+              &copy; {new Date().getFullYear()} Haydn Morris. All rights
+              reserved.
+            </p>
+            <p className="text-lg">
               <a
                 href="https://haydnjm.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline"
+                className="inline-block font-bold bg-secondary text-secondary-foreground hover:bg-primary/90 transition duration-200 rounded-full px-6 py-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Haydn
+                ✨ Hire me ✨
               </a>
             </p>
+            <p>
+              &copy; {new Date().getFullYear()} Haydn Morris. All rights
+              reserved.
+            </p>
           </div>
-        </div>
+        </footer>
       </body>
     </html>
   );

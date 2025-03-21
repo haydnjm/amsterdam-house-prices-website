@@ -1,0 +1,25 @@
+.scrollContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollTrack {
+  display: flex;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+}
+
+.scrollContainer:hover .scrollTrack {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

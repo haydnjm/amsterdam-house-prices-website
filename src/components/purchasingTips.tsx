@@ -14,7 +14,7 @@ function PurchasingTip({
 }) {
   return (
     <div className="p-2 w-full sm:w-1/2">
-      <div className="p-3 bg-gray-300 rounded-lg">
+      <div className="p-3 bg-background rounded-lg shadow-sm">
         <h3 className="text-lg mb-5">{title}:</h3>
         <div className="text-sm">
           <p>

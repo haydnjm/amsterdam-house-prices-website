@@ -10,7 +10,7 @@ export default function DataTile({
   return (
     <div className={`w-full sm:w-1/2 lg:w-1/4 p-2`}>
       <div
-        className={`bg-gray-300 p-2 rounded-md shadow-sm flex flex-col justify-between ${
+        className={`bg-background p-2 rounded-md shadow-sm flex flex-col justify-between ${
           loading ? "animate-pulse" : ""
         }`}
       >
