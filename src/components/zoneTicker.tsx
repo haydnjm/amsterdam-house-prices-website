@@ -9,7 +9,7 @@ function TickerItem({ zoneDiff }: { zoneDiff: OneMonthZoneDiff }) {
   );
   const hasIncreased = percentageChange > 0;
   const hasValidData = zoneDiff.thisMonth && zoneDiff.lastMonth;
-  const symbol = !hasValidData ? "?" : hasIncreased ? "↑" : "↓";
+  const symbol = !hasValidData ? "" : hasIncreased ? "↑" : "↓";
   const value = hasValidData ? Math.abs(percentageChange * 100).toFixed(1) : "";
 
   return (
