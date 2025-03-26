@@ -5,7 +5,7 @@ export default async function TodaysMetrics() {
   const todaysMetrics = await getData();
 
   return (
-    <>
+    <div className="px-2 md:p-0">
       <h2 className="text-3xl mb-3">today (so far):</h2>
       <div className="flex -mx-2 flex-wrap">
         <DataTile
@@ -35,6 +35,6 @@ export default async function TodaysMetrics() {
           }
         />
       </div>
-    </>
+    </div>
   );
 }

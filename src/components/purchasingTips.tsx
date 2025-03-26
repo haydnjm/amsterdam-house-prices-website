@@ -43,7 +43,7 @@ function PurchasingTips({
   purchasingTips: PurchasingTipData;
 }) {
   return (
-    <div>
+    <div className="px-2 md:p-0">
       <h2 className="text-3xl mb-3">when to buy:</h2>
       <div className="-m-2 flex flex-wrap">
         <PurchasingTip

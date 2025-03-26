@@ -74,7 +74,7 @@ export default function MonthlyGraph({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full px-2 md:p-0">
       <h2 className="text-3xl mb-3">average price over the last 12 months:</h2>
       <Chart data={chartData} options={options} type="bar" />
     </div>

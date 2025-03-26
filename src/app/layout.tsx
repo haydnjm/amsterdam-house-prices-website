@@ -115,7 +115,7 @@ export default function RootLayout({
           </a>
         </header>
         <div className="min-h-screen lg:py-20 z-10 w-full">
-          <div className="max-w-3xl m-auto">
+          <div className="max-w-3xl m-auto px-2 md:p-0">
             <h1 className="font-bold tracking-tighter text-5xl lg:text-6xl text-center my-20">
               Amsterdam house prices
             </h1>
