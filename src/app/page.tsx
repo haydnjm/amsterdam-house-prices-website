@@ -10,7 +10,7 @@ import NewListings from "./new-listings";
 import NewListingsLoading from "./new-listings/loading";
 import { Suspense } from "react";
 
-export const revalidate = 60 * 60 * 3;
+export const revalidate = 10800;
 
 export default async function Home() {
   return (
