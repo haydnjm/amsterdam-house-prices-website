@@ -10,6 +10,7 @@ import NewListings from "./new-listings";
 import NewListingsLoading from "./new-listings/loading";
 import { Suspense } from "react";
 
+export const dynamic = "force-static";
 export const revalidate = 10800;
 
 export default async function Home() {

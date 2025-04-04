@@ -1,18 +1,26 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Image from "next/image";
 import haydnLogo from "@/images/haydn.png";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Funnel_Display, Ubuntu, Ubuntu_Mono } from "next/font/google";
+import Image from "next/image";
 import Script from "next/script";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const ubuntu = Ubuntu({
+  variable: "--font-ubuntu",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ubuntuMono = Ubuntu_Mono({
+  variable: "--font-ubuntu-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const funnelyDisplay = Funnel_Display({
+  variable: "--font-funnely-display",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -96,7 +104,7 @@ export default function RootLayout({
         />
       )}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-secondary/20 via-background to-secondary/20`}
+        className={`${ubuntu.variable} ${ubuntuMono.variable} ${funnelyDisplay.variable} antialiased bg-gradient-to-br from-secondary/20 via-background to-secondary/20`}
       >
         <header className="sticky top-0 z-40 w-full border-b-2 border-secondary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-container h-16 flex items-center">
           <a
@@ -116,7 +124,7 @@ export default function RootLayout({
         </header>
         <div className="min-h-screen lg:py-20 z-10 w-full">
           <div className="max-w-3xl m-auto px-2 md:p-0">
-            <h1 className="font-bold tracking-tighter text-5xl lg:text-6xl text-center my-20">
+            <h1 className="font-bold tracking-tight text-5xl lg:text-6xl text-center my-20">
               Amsterdam house prices
             </h1>
             <p className="text-md text-center my-10">
