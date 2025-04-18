@@ -128,6 +128,12 @@ export default function RootLayout({
               Amsterdam house prices
             </h1>
             <p className="text-md text-center my-10">
+              Most of the data for this website was coming from Funda. In
+              January 2025 they updated their policy regarding scraping.... I'm
+              working on getting the data from somewhere else but in the
+              meantime there'll be much fewer listings appearing here :(
+            </p>
+            <p className="text-md text-center my-10">
               All of the following information is from public listings posted
               since July 2023. It does not indicate final sale price, but
               initial listing price. &quot;Houses&quot; with less than 25m² of
